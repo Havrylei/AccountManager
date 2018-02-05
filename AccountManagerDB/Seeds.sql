@@ -202,3 +202,83 @@ INSERT INTO Countries(Name) VALUES('Vietnam')
 INSERT INTO Countries(Name) VALUES('Yemen')
 INSERT INTO Countries(Name) VALUES('Zambia')
 INSERT INTO Countries(Name) VALUES('Zimbabwe')
+
+INSERT INTO Users 
+VALUES ('qwe', 'qwerty@rt.yu', '12345', 1, 3, 1, '01-01-2017', '01-01-2018', '08-02-1995', '123321123', 1,
+'Kabul', 'a:\\avatar.jpg', 'Abdul', 'Ahmed', 1, 1, 0)
+
+INSERT INTO Users 
+VALUES ('dfg', 'qwerty@rt.yu', '12345', 3, 1, 0, '12-12-2016', '02-03-2017', '12-12-2000', '123321123', 3,
+'Ibn', 'a:\\33.jpg', 'Keke', 'Ahmed', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('asd', 'qwerty@rt.yu', '12345', 1, 3, 1, '11-01-2017', '01-12-2018', '12-02-2001', '123321123', 2,
+'Asas', 'a:\\22.jpg', 'Peter', 'Jijo', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('zxc', 'ryry@rt.yu', '1111', 3, 3, 0, '12-11-2010', '09-07-2017', '08-02-1963', '899474', 15,
+'Ezeze', 'a:\\11.jpg', 'Abdul', 'Udo', 0, 1, 0)
+
+INSERT INTO Users 
+VALUES ('ggg', 'jjhj@rt.yu', '66666', 1, 3, 1, '01-01-2017', '01-01-2018', '08-02-1995', '123321123', 1,
+'Kabul', 'a:\\avatar.jpg', 'Kiko', 'John', 1, 1, 0)
+
+INSERT INTO Users 
+VALUES ('hjh', 'trttr@rt.yu', '77777', 3, 1, 0, '12-12-2016', '02-03-2017', '12-12-1933', '998878', 1,
+'Ibn', 'a:\\33.jpg', 'Keke', 'Ahmed', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('ooo', 'qwerty@rt.yu', '88888', 1, 3, 1, '11-01-2015', '01-12-2018', '12-02-2001', '123321123', 2,
+'Asas', 'a:\\22.jpg', 'Peter', 'Jijo', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('ppp', 'ppp@rt.yu', '1111', 1, 3, 0, '12-11-2010', '09-07-2017', '08-02-1963', '899474', 55,
+'Las Vagas', 'a:\\11.jpg', 'Pppp', 'Ppp', 0, 1, 0)
+
+INSERT INTO Users 
+VALUES ('bbbbb', 'jjhj@rt.yu', '544554', 1, 3, 1, '01-01-2017', '01-01-2018', '08-02-1995', '43223', 66,
+'Amsterdam', 'a:\\avatar.jpg', 'Kiko', 'John', 1, 1, 0)
+
+INSERT INTO Users 
+VALUES ('ertrt', 'trttr@rt.yu', '5', 3, 1, 0, '12-12-2016', '02-03-2017', '12-12-1933', '998878', 12,
+'New York', 'a:\\33.jpg', 'Zin', 'Kon', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('vssv', 'qwerty@rt.yu', '11', 1, 3, 1, '11-01-2015', '01-12-2018', '12-02-2001', '123321123', 2,
+'Asas', 'a:\\22.jpg', 'Cat', 'Anaka', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('bdsbsd', 'ppp@rt.yu', '34234', 1, 3, 0, '12-11-2010', '09-07-2017', '08-02-1963', '899474', 55,
+'Las Vegas', 'a:\\11.jpg', 'Pet', 'Dog', 0, 1, 0)
+
+INSERT INTO Users 
+VALUES ('qqqqqqq', 'qq@rt.yu', '5refv', 2, 3, 1, '01-01-2017', '01-01-2018', '08-02-1995', '43223', 66,
+'Helm', 'a:\\avatar.jpg', 'Kiko', 'Koko', 1, 1, 0)
+
+INSERT INTO Users 
+VALUES ('wwwwwww', 'ww@rt.yu', 'qwere', 2, 3, 0, '12-12-2016', '02-03-2017', '12-12-1933', '998878', 12,
+'Miami', 'a:\\33.jpg', 'Kon', 'Kon', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('eeeeee', 'ee@rt.yu', 'zxczxc', 3, 1, 1, '11-01-2015', '01-12-2018', '12-02-2001', '123321123', 2,
+'Asas', 'a:\\22.jpg', 'Yuyu', 'Zin', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('rrrrrr', 'rr@rt.yu', 'hjhgh', 1, 1, 0, '12-11-2010', '09-07-2017', '08-02-1963', '899474', 55,
+'Las Vegas', 'a:\\11.jpg', 'gbdg', 'WvsdvDog', 0, 1, 0)
+
+INSERT INTO Users 
+VALUES ('zzzxx', 'uyt@rt.yu', 'sfvfdgbdf', 2, 3, 1, '01-01-2017', '01-01-2018', '08-02-1995', '43223', 66,
+'Abu-Dabi', 'a:\\avatar.jpg', 'Kiko', 'Koko', 1, 1, 0)
+
+INSERT INTO Users 
+VALUES ('xxxccc', 'adrew@rt.yu', 'bbbg', 2, 3, 0, '12-12-2016', '02-03-2017', '12-12-1933', '998878', 12,
+'Tokio', 'a:\\33.jpg', 'Kon', 'Kon', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('vvbbb', 'ttt@rt.yu', 'ssv', 3, 1, 1, '11-01-2015', '01-12-2018', '12-02-2001', '123321123', 2,
+'Kioko', 'a:\\22.jpg', 'Yuyu', 'Zin', 1, 0, 0)
+
+INSERT INTO Users 
+VALUES ('nnmmm', 'tyty@rt.yu', 'ddv', 1, 1, 0, '12-11-2010', '09-07-2017', '08-02-1963', '899474', 55,
+'Las Alamos', 'a:\\11.jpg', 'John', 'Uoip', 0, 1, 0)
