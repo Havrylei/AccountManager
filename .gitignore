@@ -1,2 +1,5 @@
-/AccountManagerDB/bin/*
-/AccountManagerDB/obj/*
+/*/bin/*
+/*/obj/*
+
+.vs
+AccountManagerDB/AccountManagerDB.dbmdl
