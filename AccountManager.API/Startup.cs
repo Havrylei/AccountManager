@@ -7,6 +7,9 @@ using AccountManager.DAL.Infrastructure;
 using AccountManager.DAL.Interfaces;
 using AccountManager.DAL.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
+using AccountManager.BLL.Infrastructure;
+using AccountManager.BLL.Interfaces;
+using AccountManager.BLL.Services;
 
 namespace AccountManager.API
 {
@@ -24,7 +27,9 @@ namespace AccountManager.API
         {
             services.AddDbContext<Context>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+            services.AddSingleton(MapperProfile.Instance);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUserService, UserService>();
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {

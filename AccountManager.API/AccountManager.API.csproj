@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AccountManager.BLL\AccountManager.BLL.csproj" />
     <ProjectReference Include="..\AccountManager.DAL\AccountManager.DAL.csproj" />
   </ItemGroup>
 

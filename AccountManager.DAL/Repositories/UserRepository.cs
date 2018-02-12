@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using AccountManager.DAL.Entities;
 using AccountManager.DAL.Infrastructure;
 using AccountManager.DAL.Interfaces;
+using System.Linq.Expressions;
 
 namespace AccountManager.DAL.Repositories
 {
@@ -45,9 +46,9 @@ namespace AccountManager.DAL.Repositories
             return result;
         }
 
-        public async Task<bool> Exists(long id)
+        public async Task<bool> Exists(Expression<Func<User, bool>> predicate)
         {
-            return await _context.Users.AnyAsync(u => u.ID == id);
+            return await _context.Users.AnyAsync(predicate);
         }
     }
 }
