@@ -10,6 +10,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using AccountManager.BLL.Infrastructure;
 using AccountManager.BLL.Interfaces;
 using AccountManager.BLL.Services;
+using AccountManager.BLL.Infrastructure.Profiles;
 
 namespace AccountManager.API
 {
@@ -30,6 +31,7 @@ namespace AccountManager.API
             services.AddSingleton(MapperProfile.Instance);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IMessageService, MessageService>();
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {

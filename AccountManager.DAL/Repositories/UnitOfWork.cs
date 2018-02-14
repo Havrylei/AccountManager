@@ -8,7 +8,8 @@ namespace AccountManager.DAL.Repositories
     {
         private readonly Context _context;
         private bool disposed;
-        private IUserRepository nodeRepository;
+        private IUserRepository userRepository;
+        private IMessageRepository messageRepository;
 
         public UnitOfWork(Context context)
         {
@@ -20,12 +21,25 @@ namespace AccountManager.DAL.Repositories
         {
             get
             {
-                if (nodeRepository == null)
+                if (userRepository == null)
                 {
-                    nodeRepository = new UserRepository(_context);
+                    userRepository = new UserRepository(_context);
                 }
 
-                return nodeRepository;
+                return userRepository;
+            }
+        }
+
+        public IMessageRepository Messages
+        {
+            get
+            {
+                if (messageRepository == null)
+                {
+                    messageRepository = new MessageRepository(_context);
+                }
+
+                return messageRepository;
             }
         }
 
