@@ -30,6 +30,7 @@ namespace AccountManager.API
             services.AddSingleton(MapperProfile.Instance);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRatingService, UserRatingService>();
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {

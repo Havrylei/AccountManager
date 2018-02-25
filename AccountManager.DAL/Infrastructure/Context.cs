@@ -9,6 +9,7 @@ namespace AccountManager.DAL.Infrastructure
         public DbSet<Group> Groups { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<UserRating> UsersRaitings { get; set; }
 
         public Context(DbContextOptions<Context> context)
             : base(context)

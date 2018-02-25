@@ -12,6 +12,7 @@ namespace AccountManager.BLL.Infrastructure
             var mapperConfiguration = new MapperConfiguration(config =>
             {
                 config.AddProfile<UserProfile>();
+                config.AddProfile<UserRatingProfile>();
             });
 
             Instance = mapperConfiguration.CreateMapper();
