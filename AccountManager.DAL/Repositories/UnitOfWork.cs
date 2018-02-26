@@ -10,6 +10,7 @@ namespace AccountManager.DAL.Repositories
         private bool disposed;
         private IUserRepository userRepository;
         private IUserRatingRepository userRatingRepository;
+        private IMessageRepository messageRepository;
 
         public UnitOfWork(Context context)
         {
@@ -29,7 +30,7 @@ namespace AccountManager.DAL.Repositories
                 return userRepository;
             }
         }
-
+        
         public IUserRatingRepository UserRatings
         {
             get
@@ -40,6 +41,19 @@ namespace AccountManager.DAL.Repositories
                 }
 
                 return userRatingRepository;
+            }
+        }
+
+        public IMessageRepository Messages
+        {
+            get
+            {
+                if (messageRepository == null)
+                {
+                    messageRepository = new MessageRepository(_context);
+                }
+
+                return messageRepository;
             }
         }
 

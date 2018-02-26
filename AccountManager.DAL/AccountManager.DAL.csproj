@@ -8,4 +8,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Entities\Message.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>
