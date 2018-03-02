@@ -21,15 +21,9 @@ namespace AccountManager.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(long id)
+        public async Task<IActionResult> Get(string id)
         {
             return Ok(await _logic.Get(id));
-        }
-
-        [HttpPatch("{login}")]
-        public async Task<IActionResult> Exists(string login)
-        {
-            return Ok(await _logic.Exists(u => u.Login == login));
         }
     }
 }

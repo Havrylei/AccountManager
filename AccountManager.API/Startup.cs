@@ -11,6 +11,8 @@ using AccountManager.BLL.Infrastructure;
 using AccountManager.BLL.Interfaces;
 using AccountManager.BLL.Services;
 using AccountManager.BLL.Infrastructure.Profiles;
+using Microsoft.AspNetCore.Identity;
+using AccountManager.DAL.Entities;
 
 namespace AccountManager.API
 {
@@ -26,16 +28,26 @@ namespace AccountManager.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("DBConnection");
+
             services.AddDbContext<Context>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
+                options.UseSqlServer(connectionString));
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(connectionString));
+            services.AddIdentity<User, IdentityRole>(opts => {
+                    opts.Password.RequiredLength = 5;   
+                    opts.Password.RequireNonAlphanumeric = false;  
+                    opts.Password.RequireLowercase = false; 
+                    opts.Password.RequireUppercase = false; 
+                    opts.Password.RequireDigit = false; 
+                })
+                .AddEntityFrameworkStores<UserContext>();
+
             services.AddSingleton(MapperProfile.Instance);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IIdentityUnitOfWork, IdentityUnitOfWork>();
             services.AddScoped<IUserService, UserService>();
-<<<<<<< HEAD
             services.AddScoped<IUserRatingService, UserRatingService>();
-=======
             services.AddScoped<IMessageService, MessageService>();
->>>>>>> dev
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
