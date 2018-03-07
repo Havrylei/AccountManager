@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AccountManager.DAL.Entities
+﻿namespace AccountManager.DAL.Entities
 {
     public class Grade
     {

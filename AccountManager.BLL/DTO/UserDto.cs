@@ -4,13 +4,11 @@ namespace AccountManager.BLL.DTO
 {
     public class UserDto
     {
-        public long ID { get; set; }
+        public string ID { get; set; }
         public string Login { get; set; }
         public string Email { get; set; }
         public int GradeID { get; set; }
         public GradeDto Grade { get; set; }
-        public int GroupID { get; set; }
-        public GroupDto Group { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime EnterDate { get; set; }
         public DateTime BirthDate { get; set; }

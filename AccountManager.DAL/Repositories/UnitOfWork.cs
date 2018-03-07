@@ -4,11 +4,10 @@ using AccountManager.DAL.Interfaces;
 
 namespace AccountManager.DAL.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly Context _context;
         private bool disposed;
-        private IUserRepository userRepository;
         private IUserRatingRepository userRatingRepository;
         private IMessageRepository messageRepository;
 
@@ -16,19 +15,6 @@ namespace AccountManager.DAL.Repositories
         {
             _context = context
                 ?? throw new ArgumentNullException(nameof(context));
-        }
-
-        public IUserRepository Users
-        {
-            get
-            {
-                if (userRepository == null)
-                {
-                    userRepository = new UserRepository(_context);
-                }
-
-                return userRepository;
-            }
         }
         
         public IUserRatingRepository UserRatings

@@ -2,7 +2,6 @@
 {
     public interface IUnitOfWork
     {
-        IUserRepository Users { get; }
         IUserRatingRepository UserRatings { get; }
         IMessageRepository Messages { get; }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AccountManager.BLL.DTO
+﻿namespace AccountManager.BLL.DTO
 {
     public class GradeDto
     {

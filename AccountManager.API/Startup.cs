@@ -13,6 +13,10 @@ using AccountManager.BLL.Services;
 using AccountManager.BLL.Infrastructure.Profiles;
 using Microsoft.AspNetCore.Identity;
 using AccountManager.DAL.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using AccountManager.API.Models;
+using AccountManager.API.Infrastructure.Filters;
 
 namespace AccountManager.API
 {
@@ -24,12 +28,11 @@ namespace AccountManager.API
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("DBConnection");
-
+                      
             services.AddDbContext<Context>(options =>
                 options.UseSqlServer(connectionString));
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connectionString));
@@ -48,27 +51,59 @@ namespace AccountManager.API
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRatingService, UserRatingService>();
             services.AddScoped<IMessageService, MessageService>();
-            services.AddMvc();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("app", new Info { Title = "Account Manager" });
+                c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
             });
-        }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.RequireHttpsMetadata = false;
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            // укзывает, будет ли валидироваться издатель при валидации токена
+                            ValidateIssuer = true,
+                            // строка, представляющая издателя
+                            ValidIssuer = AuthOptions.ISSUER,
+
+                            // будет ли валидироваться потребитель токена
+                            ValidateAudience = true,
+                            // установка потребителя токена
+                            ValidAudience = AuthOptions.AUDIENCE,
+                            // будет ли валидироваться время существования
+                            ValidateLifetime = true,
+
+                            // установка ключа безопасности
+                            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                            // валидация ключа безопасности
+                            ValidateIssuerSigningKey = true,
+                        };
+                    });
+
+            services.AddMvc();
+        }
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+            app.UseAuthentication();
             
-            app.UseSwagger();
+            //app.UseSwagger();
             
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/app/swagger.json", "Account Manager");
-            });
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/app/swagger.json", "Account Manager");
+            //});
 
             app.UseMvc();
         }

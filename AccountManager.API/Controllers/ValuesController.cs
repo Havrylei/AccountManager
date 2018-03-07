@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AccountManager.BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AccountManager.API.Controllers
 {
@@ -12,9 +13,10 @@ namespace AccountManager.API.Controllers
         public ValuesController(IUserService logic)
         {
             _logic = logic;
-        }
-        
-        [HttpGet]
+        }        
+
+        [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             return Ok(await _logic.GetAll());
