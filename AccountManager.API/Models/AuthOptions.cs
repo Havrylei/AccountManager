@@ -8,7 +8,7 @@ namespace AccountManager.API.Models
         public const string ISSUER = "AccountManager";
         public const string AUDIENCE = "http://localhost:5000/"; 
         const string PASS = "IdentityAccountManager2018";  
-        public const int LIFETIME = 1; 
+        public const int LIFETIME = 5; 
 
         public static SymmetricSecurityKey GetSymmetricSecurityKey()
         {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
+using System.Security.Claims;
 using AutoMapper;
 using AccountManager.BLL.DTO;
 using AccountManager.BLL.Interfaces;
 using AccountManager.DAL.Entities;
 using AccountManager.DAL.Interfaces;
-using System.Linq.Expressions;
-using System.Security.Claims;
 
 namespace AccountManager.BLL.Services
 {
@@ -40,24 +40,24 @@ namespace AccountManager.BLL.Services
             return dto;
         }
 
-        public async Task<ClaimsIdentity> Identity(string login, string password)
+        public async Task<ClaimsIdentity> Identity(AuthenticateDto dto)
         {
-            User user = await _unitOfWork.Users.GetByLogin(login);
+            User user = await _unitOfWork.Users.GetByLogin(dto.Login);
 
             if (user == null)
             {
                 return null;
             }
 
-            if (!await _unitOfWork.Users.CheckPassword(user, password))
+            if (!await _unitOfWork.Users.CheckPassword(user, dto.Password))
             {
                 return null;
             }
 
             var claims = new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, user.UserName),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, "user")
+                    new Claim(ClaimsIdentity.DefaultNameClaimType, user.Id),
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType, "User")
                 };
 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token", 
@@ -74,14 +74,12 @@ namespace AccountManager.BLL.Services
             return dto;
         }
 
-        public async Task<UserDto> Create(RegistrateUserDto dto)
+        public async Task Create(RegistrateUserDto dto)
         {
-            User result = await _unitOfWork.Users.Create(_mapper.Map<User>(dto), dto.Password);
-
-            return _mapper.Map<UserDto>(result);
+            await _unitOfWork.Users.Create(_mapper.Map<User>(dto), dto.Password);
         }
 
-        public async Task<EditUserDto> Update(string id, EditUserDto dto)
+        public async Task Update(string id, EditUserDto dto)
         {
             User entity = await _unitOfWork.Users.Get(id);
 
@@ -97,9 +95,7 @@ namespace AccountManager.BLL.Services
             entity.HideEmail = dto.HideEmail;
             entity.HidePhone = dto.HidePhone;
 
-            User result = await _unitOfWork.Users.Update(entity);
-
-            return _mapper.Map<EditUserDto>(result);
+            await _unitOfWork.Users.Update(entity);
         }
 
         public async Task<bool> Exists(Expression<Func<User, bool>> predicate)

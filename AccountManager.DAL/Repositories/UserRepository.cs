@@ -64,18 +64,14 @@ namespace AccountManager.DAL.Repositories
             return result;
         }
 
-        public async Task<User> Create(User user, string password)
+        public async Task Create(User user, string password)
         {
-            var result = await _manager.CreateAsync(user, password);
-
-            return user;
+            await _manager.CreateAsync(user, password);
         }
 
-        public async Task<User> Update(User user)
+        public async Task Update(User user)
         {
-            var result = await _manager.UpdateAsync(user);
-
-            return user;
+            await _manager.UpdateAsync(user);
         }
 
         public async Task<bool> Exists(Expression<Func<User, bool>> predicate)

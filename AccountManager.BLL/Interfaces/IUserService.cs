@@ -12,10 +12,10 @@ namespace AccountManager.BLL.Interfaces
     {
         Task<IEnumerable<UserDto>> GetAll();
         Task<UserDto> Get(string id);
-        Task<UserDto> Create(RegistrateUserDto dto);
+        Task Create(RegistrateUserDto dto);
         Task<EditUserDto> Edit(string id);
-        Task<ClaimsIdentity> Identity(string login, string password);
-        Task<EditUserDto> Update(string id, EditUserDto dto);
+        Task<ClaimsIdentity> Identity(AuthenticateDto dto);
+        Task Update(string id, EditUserDto dto);
         Task<bool> Exists(Expression<Func<User, bool>> predicate);
     }
 }

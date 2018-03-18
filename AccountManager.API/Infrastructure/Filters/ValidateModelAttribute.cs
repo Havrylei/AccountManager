@@ -16,7 +16,7 @@ namespace AccountManager.API.Infrastructure.Filters
 
             Dictionary<string, string> errors = context.ModelState
                 .Where(x => x.Value.Errors.Any())
-                .ToDictionary(key => key.Key, value => value.Value.Errors.First().ErrorMessage);
+                .ToDictionary(key => key.Key.ToLower(), value => value.Value.Errors.First().ErrorMessage);
 
             context.Result = new BadRequestObjectResult(errors);
         }
