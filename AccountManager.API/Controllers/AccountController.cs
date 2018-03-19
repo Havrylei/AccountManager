@@ -39,7 +39,7 @@ namespace AccountManager.API.Controllers
 
             if (result == null)
             {
-                return new BadRequestObjectResult(new { Info = "User doesn't exist." });
+                return new BadRequestObjectResult(new { Notice = "User doesn't exist." });
             }
 
             return Ok(result);
@@ -52,7 +52,7 @@ namespace AccountManager.API.Controllers
 
             if (result == null)
             {
-                return new BadRequestObjectResult(new { Info = "User doesn't exist." });
+                return new BadRequestObjectResult(new { Notice = "User doesn't exist." });
             }
 
             return Ok(result);
@@ -66,7 +66,7 @@ namespace AccountManager.API.Controllers
 
             if (identity == null)
             {
-                return new BadRequestObjectResult(new { reason = "Wrong login or password." });
+                return new BadRequestObjectResult(new { Notice = "Wrong login or password." });
             }
             
             JwtSecurityToken jwt = new JwtSecurityToken(
@@ -111,7 +111,7 @@ namespace AccountManager.API.Controllers
 
             if (dto == null)
             {
-                return new BadRequestObjectResult(new { Info = "User doesn't exist." });
+                return new BadRequestObjectResult(new { Notice = "User doesn't exist." });
             }
 
             return Ok(dto);
