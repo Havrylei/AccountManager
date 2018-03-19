@@ -1,6 +1,6 @@
-﻿INSERT INTO Grades(Name, Immutable) VALUES('Male', 1)
-INSERT INTO Grades(Name, Immutable) VALUES('Female', 1)
-INSERT INTO Grades(Name, Immutable) VALUES('Gradeless', 0)
+﻿INSERT INTO Genders(Name, Immutable) VALUES('Male', 1)
+INSERT INTO Genders(Name, Immutable) VALUES('Female', 1)
+INSERT INTO Genders(Name, Immutable) VALUES('Gradeless', 0)
 
 INSERT INTO Countries(Name) VALUES('Afghanistan')
 INSERT INTO Countries(Name) VALUES('Albania')

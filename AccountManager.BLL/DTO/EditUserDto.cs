@@ -8,7 +8,7 @@ namespace AccountManager.BLL.DTO
         [Required]
         public string Email { get; set; }
         [Required]
-        public int GradeID { get; set; }
+        public int GenderID { get; set; }
         public DateTime BirthDate { get; set; }
         public string Phone { get; set; }
         public int CountryID { get; set; }

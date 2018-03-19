@@ -14,11 +14,11 @@ namespace AccountManager.BLL.Infrastructure.Profiles
                 .ForMember(m => m.Email, c => c.MapFrom(d => d.Email))
                 .ForMember(m => m.FirstName, c => c.MapFrom(d => d.FirstName))
                 .ForMember(m => m.LastName, c => c.MapFrom(d => d.LastName))
-                .ForMember(m => m.GradeID, c => c.MapFrom(d => d.GradeID))
-                .ForMember(m => m.Grade, c => c.MapFrom(d => new GradeDto()
+                .ForMember(m => m.GenderID, c => c.MapFrom(d => d.GenderID))
+                .ForMember(m => m.Gender, c => c.MapFrom(d => new GenderDto()
                 {
-                    ID = d.Grade.ID,
-                    Name = d.Grade.Name
+                    ID = d.Gender.ID,
+                    Name = d.Gender.Name
                 }))
                 .ForMember(m => m.RegistrationDate, c => c.MapFrom(d => d.RegistrationDate))
                 .ForMember(m => m.EnterDate, c => c.MapFrom(d => d.EnterDate))

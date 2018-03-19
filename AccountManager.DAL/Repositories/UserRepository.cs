@@ -26,7 +26,7 @@ namespace AccountManager.DAL.Repositories
                 from u in _manager.Users
                 orderby u.Id descending
                 select u)
-                .Include(u => u.Grade)
+                .Include(u => u.Gender)
                 .Include(u => u.Country)
                 .ToListAsync();
 
@@ -39,7 +39,7 @@ namespace AccountManager.DAL.Repositories
                 from u in _manager.Users
                 where u.Id == id
                 select u)
-                .Include(u => u.Grade)
+                .Include(u => u.Gender)
                 .Include(u => u.Country)
                 .FirstOrDefaultAsync();
 

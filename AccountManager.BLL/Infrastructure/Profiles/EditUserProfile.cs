@@ -12,7 +12,7 @@ namespace AccountManager.BLL.Infrastructure.Profiles
                 .ForMember(m => m.FirstName, c => c.MapFrom(d => d.FirstName))
                 .ForMember(m => m.LastName, c => c.MapFrom(d => d.LastName))
                 .ForMember(m => m.Email, c => c.MapFrom(d => d.Email))
-                .ForMember(m => m.GradeID, c => c.MapFrom(d => d.GradeID))
+                .ForMember(m => m.GenderID, c => c.MapFrom(d => d.GenderID))
                 .ForMember(m => m.BirthDate, c => c.MapFrom(d => d.BirthDate))
                 .ForMember(m => m.Phone, c => c.MapFrom(d => d.Phone))
                 .ForMember(m => m.CountryID, c => c.MapFrom(d => d.CountryID))

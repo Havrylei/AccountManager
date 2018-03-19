@@ -16,7 +16,7 @@
 	[SecurityStamp] [nvarchar](max) NULL,
 	[TwoFactorEnabled] [bit] NOT NULL,
 	[UserName] [nvarchar](256) NULL,
-	GradeID INT NOT NULL FOREIGN KEY REFERENCES Grades(ID),
+	GenderID INT NOT NULL FOREIGN KEY REFERENCES Genders(ID),
 	RegistrationDate DATETIME NOT NULL,
 	EnterDate DATETIME NOT NULL,
 	BirthDate DATE NULL,

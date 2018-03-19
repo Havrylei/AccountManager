@@ -5,8 +5,8 @@ namespace AccountManager.DAL.Entities
 {
     public class User : IdentityUser
     {
-        public int GradeID { get; set; }
-        public Grade Grade { get; set; }
+        public int GenderID { get; set; }
+        public Gender Gender { get; set; }
         public DateTime RegistrationDate { get; set; }
         public DateTime EnterDate { get; set; }
         public DateTime BirthDate { get; set; }

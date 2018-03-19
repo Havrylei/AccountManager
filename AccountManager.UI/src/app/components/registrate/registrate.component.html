@@ -1,0 +1,58 @@
+<div class="jumbotron">
+  <div class="col-md-4">
+      <h3>Registrate</h3> 
+      <form>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="login">Login</label>
+            <input [class.is-invalid]="errors.login != null" class="form-control form-control-sm" type="text" placeholder="Login" id="login" #login>
+            <div class="invalid-feedback">{{errors.login}}</div>
+          </div>
+          <div class="form-group">
+              <label class="col-form-label col-form-label-sm" for="email">Email</label>
+              <input [class.is-invalid]="errors.email != null" class="form-control form-control-sm" type="email" placeholder="Email" id="email" #email>
+              <div class="invalid-feedback">{{errors.email}}</div>
+            </div>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="password">Password</label>
+            <input [class.is-invalid]="errors.password != null" class="form-control form-control-sm" type="password" placeholder="Password" id="password" #password>
+            <div class="invalid-feedback">{{errors.password}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="confirm">Confirm Password</label>
+            <input [class.is-invalid]="errors.confirm != null" class="form-control form-control-sm" type="password" placeholder="Confirm Password" id="confirm" #confirm>
+            <div class="invalid-feedback">{{errors.confirm}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="firstName">First name</label>
+            <input [class.is-invalid]="errors.firstname != null" class="form-control form-control-sm" type="text" placeholder="First Name" id="firstName" #firstName>
+            <div class="invalid-feedback">{{errors.firstname}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="gender">Gender</label>
+            <select [class.is-invalid]="errors.genderid != null" class="custom-select custom-select-sm" id="gender" #genderID>
+              <option selected="" value="0">Chose Gender</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <div class="invalid-feedback">{{errors.genderid}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="country">Country</label>
+            <select [class.is-invalid]="errors.countryid != null" class="custom-select custom-select-sm" id="country" #countryID>
+              <option selected="" value="0">Chose Country</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <div class="invalid-feedback">{{errors.countryid}}</div>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="birthDate">Birth Date</label>
+            <input [class.is-invalid]="errors.birthdate != null" class="form-control form-control-sm" type="date" id="birthDate" #birthDate>
+            <div class="invalid-feedback">{{errors.birthdate}}</div>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)='registrate(login.value, email.value, password.value, confirm.value, firstName.value, genderID.value, countryID.value, birthDate.value)'>Registrate</button>
+      </form>    
+    </div>
+</div>

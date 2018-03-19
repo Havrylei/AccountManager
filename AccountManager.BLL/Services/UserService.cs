@@ -84,7 +84,7 @@ namespace AccountManager.BLL.Services
             User entity = await _unitOfWork.Users.Get(id);
 
             entity.Email = dto.Email;
-            entity.GradeID = dto.GradeID;
+            entity.GenderID = dto.GenderID;
             entity.BirthDate = dto.BirthDate;
             entity.Phone = dto.Phone;
             entity.CountryID = dto.CountryID;

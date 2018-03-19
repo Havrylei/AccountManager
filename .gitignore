@@ -4,4 +4,5 @@
 .vs
 /AccountManager.DB/AccountManager.DB.dbmdl
 AccountManager.DB/AccountManager.DB.jfm
+AccountManager.API/appsettings.json
 .vs
