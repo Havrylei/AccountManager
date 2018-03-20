@@ -4,5 +4,7 @@
     {
         IUserRatingRepository UserRatings { get; }
         IMessageRepository Messages { get; }
+        ICountryRepository Countries { get; }
+        IGenderRepository Genders { get; }
     }
 }

@@ -35,6 +35,28 @@ export class AccountService {
       .map(res => res.json())
       .catch(e => Observable.throw(e.json()));
   }
+
+  getGenders() {
+    return this.http.get(BASE_URL + '/Gender')
+      .map(res => res.json())
+      .catch(e => Observable.throw(e.json()));
+  }
+
+  getCountries() {
+    return this.http.get(BASE_URL + '/Country')
+      .map(res => res.json())
+      .catch(e => Observable.throw(e.json()));
+  }
+}
+
+export interface Gender {
+  ID:number,
+  Name:string
+}
+
+export interface Country {
+  ID:number,
+  Name:string
 }
 
 export interface RegistrateUser {

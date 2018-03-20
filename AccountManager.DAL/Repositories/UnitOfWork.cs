@@ -10,6 +10,8 @@ namespace AccountManager.DAL.Repositories
         private bool disposed;
         private IUserRatingRepository userRatingRepository;
         private IMessageRepository messageRepository;
+        private ICountryRepository countryRepository;
+        private IGenderRepository genderRepository;
 
         public UnitOfWork(Context context)
         {
@@ -40,6 +42,32 @@ namespace AccountManager.DAL.Repositories
                 }
 
                 return messageRepository;
+            }
+        }
+
+        public ICountryRepository Countries
+        { 
+            get
+            {
+                if (countryRepository == null)
+                {
+                    countryRepository = new CountryRepository(_context);
+                }
+
+                return countryRepository;
+            }
+        }
+
+        public IGenderRepository Genders
+        {
+            get
+            {
+                if (genderRepository == null)
+                {
+                    genderRepository = new GenderRepository(_context);
+                }
+
+                return genderRepository;
             }
         }
 

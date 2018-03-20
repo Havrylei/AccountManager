@@ -66,6 +66,8 @@ namespace AccountManager.API
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRatingService, UserRatingService>();
             services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IGenderService, GenderService>();
+            services.AddScoped<ICountryService, CountryService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("app", new Info { Title = "Account Manager" });

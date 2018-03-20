@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services/account.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { RegistrateUser } from '../../services/account.service';
+import { RegistrateUser, Gender, Country } from '../../services/account.service';
 
 import 'rxjs/add/observable/throw';
 
@@ -11,12 +11,20 @@ import 'rxjs/add/observable/throw';
   styleUrls: ['./registrate.component.sass']
 })
 export class RegistrateComponent implements OnInit {
-  errors:RegistrateError = <RegistrateError>{};
+  errors: RegistrateError = <RegistrateError>{};
+  genders: Gender[];
+  countries: Country[];
 
   constructor(private service: AccountService, private router: Router) { }
 
   ngOnInit() {
-  
+    this.service.getGenders().subscribe((genders) => {
+      this.genders = genders;
+    });
+
+    this.service.getCountries().subscribe((countries) => {
+      this.countries = countries;
+    })
   }
 
   registrate(login: string, email: string, password: string, confirm: string, firstName: string, genderID: number, countryID: number, birthDate: Date) {
@@ -34,7 +42,7 @@ export class RegistrateComponent implements OnInit {
     console.log(user);
 
     this.service.registrate(user).subscribe(() => {
-      //this.router.navigate(['login']);   
+      this.router.navigate(['login']);   
     }, 
     (e:any) => {
       this.errors = e;

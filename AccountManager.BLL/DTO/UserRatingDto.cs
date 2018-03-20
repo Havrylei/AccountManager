@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AccountManager.BLL.DTO
+﻿namespace AccountManager.BLL.DTO
 {
     public class UserRatingDto
     {

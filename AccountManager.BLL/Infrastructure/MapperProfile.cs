@@ -15,6 +15,8 @@ namespace AccountManager.BLL.Infrastructure
                 config.AddProfile<UserRatingProfile>();
                 config.AddProfile<RegistrateUserProfile>();
                 config.AddProfile<EditUserProfile>();
+                config.AddProfile<GenderProfile>();
+                config.AddProfile<CountryProfile>();
             });
 
             Instance = mapperConfiguration.CreateMapper();
