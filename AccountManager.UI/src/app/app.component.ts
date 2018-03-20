@@ -8,8 +8,9 @@ import 'rxjs/add/observable/throw';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
-  static currentUser:any;
+  currentUser:any;
   
   token:string = localStorage.getItem('token');
   
@@ -23,20 +24,20 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.token = null;
-    AppComponent.currentUser = null;
+    this.currentUser = null;
     localStorage.removeItem('token');
 
     return false;
   }
 
-  getCurrectUser() {
-    return AppComponent.currentUser;
+  getCurrentUser() {
+    return this.currentUser;
   }
  
   private loadCurrectUser() {
     this.service.getPersonalInfo(this.token).subscribe(user => {
       console.log(user);
-      AppComponent.currentUser = user;
+      this.currentUser = user;
     }, 
     (e:any) => {
       this.token = null;

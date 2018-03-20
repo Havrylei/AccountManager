@@ -8,6 +8,7 @@ import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountService } from './services/account.service';
 import { RegistrateComponent } from './components/registrate/registrate.component';
+import { UserResolver } from './resolvers/user/user.resolver';
 
 @NgModule({
   declarations: [
