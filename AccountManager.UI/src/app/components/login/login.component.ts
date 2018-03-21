@@ -14,7 +14,7 @@ import 'rxjs/add/observable/throw';
 export class LoginComponent implements OnInit {  
   errors: LoginError = <LoginError>{};
 
-  constructor(private service: AccountService, private router: Router) { }
+  constructor(private service: AccountService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     if(localStorage.getItem('token') != null) {
@@ -26,14 +26,9 @@ export class LoginComponent implements OnInit {
     this.service.authenticate(login, password)
       .subscribe(
         (token: string) => { 
-          localStorage.setItem('token', token);  
-          
-          this.service.getPersonalInfo(token).subscribe(user => {
-            AppComponent.currentUser = user;
-          }, 
-          (e:any) => {
-            localStorage.removeItem('token');
-          });
+          localStorage.setItem('token', token); 
+
+          this.route.parent.snapshot.data.user = this.service.getPersonalInfo(localStorage.getItem('token'));
 
           this.router.navigate(['/']);      
         }, 

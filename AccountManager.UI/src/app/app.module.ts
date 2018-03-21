@@ -23,20 +23,27 @@ import { UserResolver } from './resolvers/user/user.resolver';
     RouterModule.forRoot([
       {
         path: '',
-        component: MainComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'registrate',
-        component: RegistrateComponent
-      }
+        resolve: {
+          user: UserResolver
+        },
+        component: MainComponent,
+        children:
+        [
+          {
+            path: 'login',
+            component: LoginComponent
+          },
+          {
+            path: 'registrate',
+            component: RegistrateComponent
+          }
+        ]
+      }      
     ])
   ],
   providers: [
-    AccountService
+    AccountService,
+    UserResolver
   ],
   bootstrap: [AppComponent]
 })

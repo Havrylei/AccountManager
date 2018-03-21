@@ -1,4 +1,29 @@
-<div class="jumbotron">
-  <h3>Main page</h3>
-  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+<div class="header"></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink='/'>Account Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink='/'>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink='/registrate'>Registrate</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/login'>Log in</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf='currentUser != null'>
+      <li class="nav-item"><a class="nav-link">Hello, {{currentUser.login}}!</a></li>
+      <li class="nav-item"><a class="nav-link" (click)='logout()' routerLink='#'>Log out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container main-container">
+  <router-outlet></router-outlet>
 </div>
