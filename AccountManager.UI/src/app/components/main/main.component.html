@@ -11,10 +11,10 @@
         <a class="nav-link" routerLink='/'>Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" routerLink='/registrate'>Registrate</a>
+          <a class="nav-link" routerLink='/registrate' *ngIf='currentUser == null'>Registrate</a>
         </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink='/login'>Log in</a>
+        <a class="nav-link" routerLink='/login' *ngIf='currentUser == null'>Log in</a>
       </li>
     </ul>
     <ul class="navbar-nav" *ngIf='currentUser != null'>

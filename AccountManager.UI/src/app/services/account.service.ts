@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from "rxjs/Subject";
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -9,7 +10,8 @@ const BASE_URL:string = 'http://localhost:5000/api';
 
 @Injectable()
 export class AccountService {
-  
+  public user$ = new Subject();
+
   constructor(public http:Http) { 
     
   }

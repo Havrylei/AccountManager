@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../../services/account.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,7 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 export class MainComponent implements OnInit {
   currentUser: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private service: AccountService, private route: ActivatedRoute) { 
+    this.service.user$.subscribe((user) => {
+      this.currentUser = user;
+    });
+  }
 
   ngOnInit() {
     this.currentUser = this.route.snapshot.data.user;

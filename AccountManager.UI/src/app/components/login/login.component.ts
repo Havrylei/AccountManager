@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (token: string) => { 
           localStorage.setItem('token', token); 
-
-          this.route.parent.snapshot.data.user = this.service.getPersonalInfo(localStorage.getItem('token'));
+          this.service.getPersonalInfo(token).subscribe(user => {
+            this.service.user$.next(user);
+          });         
 
           this.router.navigate(['/']);      
         }, 
