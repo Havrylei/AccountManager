@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from "rxjs/Subject";
+import { RegistrateUser } from '../core/models/user/registrate_user';
+import { LoginUser } from '../core/models/user/login_user';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -12,17 +14,17 @@ const BASE_URL:string = 'http://localhost:5000/api';
 export class AccountService {
   public user$ = new Subject();
 
-  constructor(public http:Http) { 
+  constructor(private http:Http) { 
     
   }
 
-  authenticate(login:string, password:string): Observable<string> {
-    return this.http.post(BASE_URL + '/Account/Token', { 'login': login, 'password': password })
+  authenticate(user: LoginUser): Observable<string> {
+    return this.http.post(BASE_URL + '/Account/Token', user)
       .map(res => res.text())
       .catch(e => Observable.throw(e.json()));
   }
 
-  registrate(user:RegistrateUser) {
+  registrate(user: RegistrateUser) {
     return this.http.post(BASE_URL + '/Account', user)
       .catch(e => Observable.throw(e.json()));
   }
@@ -51,23 +53,5 @@ export class AccountService {
   }
 }
 
-export interface Gender {
-  ID:number,
-  Name:string
-}
 
-export interface Country {
-  ID:number,
-  Name:string
-}
 
-export interface RegistrateUser {
-  login:string;
-  email:string,
-  password:string;
-  confirm:string;
-  firstName:string;
-  genderID:number;
-  countryID: number;
-  birthDate:Date;
-}

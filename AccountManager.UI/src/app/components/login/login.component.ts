@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services/account.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AppComponent } from '../../app.component';
+import { LoginError } from '../../core/models/user/login_error';
+import { LoginUser } from '../../core/models/user/login_user';
 
 import 'rxjs/add/observable/throw';
 
@@ -13,6 +15,7 @@ import 'rxjs/add/observable/throw';
 
 export class LoginComponent implements OnInit {  
   errors: LoginError = <LoginError>{};
+  user: LoginUser = <LoginUser>{};
 
   constructor(private service: AccountService, private router: Router, private route: ActivatedRoute) { }
 
@@ -22,8 +25,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  authenticate(login: string, password: string) {
-    this.service.authenticate(login, password)
+  authenticate() {
+    this.service.authenticate(this.user)
       .subscribe(
         (token: string) => { 
           localStorage.setItem('token', token); 
@@ -41,8 +44,3 @@ export class LoginComponent implements OnInit {
   } 
 }
 
-interface LoginError {
-  notice:string;
-  login:string;
-  password:string;
-}

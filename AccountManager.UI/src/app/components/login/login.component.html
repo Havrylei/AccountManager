@@ -6,16 +6,31 @@
     <h3>Authentication</h3> 
     <form>
         <div class="form-group">
-          <label class="col-form-label col-form-label-sm" for="login">Login</label>
-          <input [class.is-invalid]="errors.login != null" class="form-control form-control-sm" type="text" placeholder="Login" id="login" #login>
+          <label class="col-form-label col-form-label-sm" for="login" (click)="errors.login = null">Login</label>
+          <input [class.is-invalid]="errors.login != null" 
+            class="form-control form-control-sm" 
+            type="text" placeholder="Login" 
+            id="login" 
+            name="login"
+            [(ngModel)]="user.login"
+            (click)="errors.login = null" 
+            (keyup)="errors.login = null">
           <div class="invalid-feedback">{{errors.login}}</div>
         </div>
         <div class="form-group">
-          <label class="col-form-label col-form-label-sm" for="password">Password</label>
-          <input [class.is-invalid]="errors.password != null" class="form-control form-control-sm" type="password" placeholder="Password" id="password" #password>
+          <label class="col-form-label col-form-label-sm" for="password" (click)="errors.password = null">Password</label>
+          <input [class.is-invalid]="errors.password != null" 
+            class="form-control form-control-sm" 
+            type="password" 
+            placeholder="Password" 
+            id="password" 
+            name="password"
+            [(ngModel)]="user.password"
+            (click)="errors.password = null" 
+            (keyup)="errors.password = null">
           <div class="invalid-feedback">{{errors.password}}</div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)='authenticate(login.value, password.value)'>Log in</button>
+        <button type="submit" class="btn btn-primary" (click)='authenticate()'>Log in</button>
     </form>    
   </div>
 </div>
